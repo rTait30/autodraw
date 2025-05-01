@@ -13,7 +13,7 @@ import json
 
 kivy.require('2.0.0')
 
-VPS_IP = "presentr.ai"  # Replace this with your actual VPS IP or domain
+VPS_IP = "presentr.ai/copelands"  # Replace this with your actual VPS IP or domain
 
 
 class ConfigViewer(BoxLayout):
@@ -40,7 +40,7 @@ class ConfigViewer(BoxLayout):
     def refresh_configs(self):
         for category in self.categories:
             try:
-                url = f"http://{VPS_IP}/copelands/list_configs/{category}"
+                url = f"http://{VPS_IP}/list_configs/{category}"
                 response = requests.get(url)
                 response.raise_for_status()
                 self.config_data[category] = response.json()
@@ -77,7 +77,7 @@ class ConfigViewer(BoxLayout):
 
     def open_draw_popup(self, category, config_name):
         try:
-            url = f"http://{VPS_IP}/copelands/get_config/{category}/{config_name}"
+            url = f"http://{VPS_IP}/get_config/{category}/{config_name}"
             response = requests.get(url)
             response.raise_for_status()
             config_data = response.json()
@@ -88,7 +88,7 @@ class ConfigViewer(BoxLayout):
         content = BoxLayout(orientation='vertical')
         text_area = TextInput(text=config_text, readonly=True, size_hint_y=0.8)
         draw_button = Button(text="Draw", size_hint_y=0.2)
-        draw_button.bind(on_release=lambda btn: self.draw(config_name))
+        draw_button.bind(on_release=lambda btn: self.draw(config_name, config_data))
 
         content.add_widget(text_area)
         content.add_widget(draw_button)
@@ -100,8 +100,10 @@ class ConfigViewer(BoxLayout):
         )
         popup.open()
 
-    def draw(self, config_name):
-        print(f"Drawing: {config_name}")  # placeholder
+    def draw(self, config_name, config_data):
+        # Use config_data here
+
+        print ("drawing job", config_name, "with data:", config_data)
 
 
 class ConfigApp(App):

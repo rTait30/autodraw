@@ -1,0 +1,106 @@
+Step 1 Skin (mpanel):
+
+	Create wireframe, confirm mesurments are valid (meausre tool)
+	Circles on plane at tension detail specified by cutomer
+	redesign parimeter edge accounting for tension detail
+	Identify planes, mpanel polylines, create mpanel skin (if ridges make bottom line ridge)
+	cable relax
+
+Step 2 2D Pattern (mpanel):
+
+	create 2d pattern (panel mesh)
+			
+Step 3 (mpanel objects):
+	
+	remake circles trim for arc
+	align corner detail bisecting corners to circle arc
+	draw cable lines
+	calculate cable distance (model distance + 1m if sail track, + 2m if all cable)
+
+Step 4 (autocad only):
+
+	Draw circle (500 radius)
+	Scale based on project details (0.995 - 0.965)
+	Draw large circle around whole project
+
+Step 5:
+
+	Delete all circles
+	Create offset lines out by pocket size (20,80)
+	
+	(sailtrack)
+	create circles at edge (50 default)
+	draw line from intersection of circle and cable line on track edge and fold line 2 perpendicular to fold 2
+	increase circles radius (120 default)
+	drawline from intersection of circle and cable edge cable side to fold line 2 perpendicular to fold line
+	fillet lines on each side (30 radius default)
+	trim outside lines
+	draw line from top left track corner cut edge to fold 1
+	make array along sailtrack edge increment by scale amount
+	delete work line
+
+	number panels
+	delete offset lines
+	
+	delete arcs, draw cut edge
+
+
+	(exit point)
+	draw circle 50 radius from rear of prorig
+	extend prorig line
+	draw circle with radius 100 at intersection of prorig line and circle
+	draw line from intersection of cable line and 100 circle to work line perpindicular to work line
+	draw line from extended prorig line to point on cable line and 100 circle
+	trim all lines over work line
+	fillet new edge
+
+	(O ring)
+	offset outer 
+	draw circle (default 100) from out
+	draw line from intersection of circle and cable line to work line perpindicular to work line	
+	copy cable line to tangent of 50 circle
+
+	label corners inside fold
+	delete cable line
+
+Step 6:
+
+	Draw boundaries (3000 default)
+	Nest panels
+	align with horizontal line
+	identify sections considering fabric
+	
+	(if seems)
+	draw seems with offsets either side of 35
+	seperate panels
+	delete internal line
+	draw new internal offset 10mm
+	draw points on top panel left side intersection between fold line and inner offest
+	draw point on same x posiiton as point on bottom panel on inner offset
+	array points with gaps of 600mm
+
+Step 7:
+
+	Add any extras
+	Use as much material as possible work within fabric width if mesh dont rotate panels
+	if topside copy, if underside mirror.
+	put shapes on aprpropriate lkayers
+	
+	
+Step 8:
+
+	Label corners
+	Label details
+	Label dimensions
+	ByBlock
+
+
+Workbook:
+
+Naviagte to detailed drawing
+display detail specifics
+turn off viewport layer
+fill out work details
+publish topview+WB
+model, save as, dxf, tools, options, select objects, accuracy 4
+
